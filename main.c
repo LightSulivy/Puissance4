@@ -7,7 +7,7 @@ int main(void) {
     //Values pour la grille
 
     unsigned int tailleHauteur = 6;
-    unsigned int tailleLarger = 7;
+    unsigned int tailleLarger = 20;
 
     //+1 pour le \0
     unsigned int hauteur = tailleHauteur;
@@ -40,7 +40,9 @@ int main(void) {
 
     for (int i = 0; i < tailleLarger; i++) {
         printf(" ");
+        printf("\033[1;33m");
         printf("%03d", i);
+        printf("\033[0m");
     }
 
     return 0;
