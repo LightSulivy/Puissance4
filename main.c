@@ -3,9 +3,20 @@
 #include <string.h>
 
 
+
+
 int main(void) {
 
-    //Values pour la grille
+    FILE *gameconf = fopen("gameconfig.txt", "r");
+    if (gameconf == NULL) {
+        printf("Error opening file");
+    }
+    char line[80] = {0};
+    fscanf(gameconf, "%s", line);
+    printf("%s", line);
+
+    fclose(gameconf);
+   /* //Values pour la grille
 
     unsigned int tailleHauteur = 6;
     unsigned int tailleLarger = 20;
@@ -61,6 +72,6 @@ int main(void) {
         printf("%03d", i);
         printf("\033[0m");
     }
-
+    */
     return 0;
 }
