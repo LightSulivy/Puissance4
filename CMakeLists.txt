@@ -4,6 +4,7 @@ project(Puissance4 C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Puissance4 main.c
-        game/gameInit.c
         player/playerInit.c
+        game/gameInit.c
+
 )

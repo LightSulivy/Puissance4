@@ -1,14 +1,11 @@
 #include <stdio.h>//
 #include <stdlib.h>
 #include <string.h>
+#include "playerInit.h"
 // Created by "Yohan" on 26/09/2024.
 //
 
-typedef struct {
-    char *color;
-    char token;
-    int turn;
-} Player ;
+
 
 Player *createPlayer(const char *color, const char token, const int turn) {
     Player *player = malloc(sizeof(Player));
@@ -20,5 +17,4 @@ Player *createPlayer(const char *color, const char token, const int turn) {
 
     return player;
 }
-
 #include "playerInit.h"

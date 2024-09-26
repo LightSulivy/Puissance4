@@ -4,6 +4,11 @@
 
 #ifndef GAMEINIT_H
 #define GAMEINIT_H
+typedef struct {
+    Player **player;
+    int playerCount;
+    char **plateau;
+} Game;
 
 Game *initGame(int playerCount, int row, int col, int winCount);
 
