@@ -30,11 +30,25 @@ int main(void) {
         }
     }
 
+
     //Afficher les éléments
     for (int h = 0; h < hauteur; h++) {
         int l = 0;
         while (plateau[h][l]!='\0'){
-            printf("%c", plateau[h][l]);
+            if (plateau[h][l]=='x') {
+                printf("\033[0;34m");
+                printf("%c", plateau[h][l]);
+                printf("\033[0m");
+            }
+            else if (plateau[h][l]=='o') {
+                printf("\033[0;31m");
+                printf("%c", plateau[h][l]);
+                printf("\033[0m");
+            }
+            else {
+                printf("%c", plateau[h][l]);
+            }
+
             l++;
         }
         printf("\n");
