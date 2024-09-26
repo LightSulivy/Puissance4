@@ -2,6 +2,31 @@
 #include <stdlib.h>
 #include <string.h>
 
+char** addToken(char** tab , int player,unsigned int hauteur ,unsigned int column){
+    for (int h = 0; h < hauteur-1; h++){
+        if(tab[h+1][column*4+2]!=' '){
+            if(player==1) {
+                tab[h][column*4+2]='x';
+                break;
+            }
+            else {
+                tab[h][column*4+2]='o';
+                break;
+            }
+        }
+        else if (h+2==hauteur && tab[h+1][column*4+2]==' ') {
+            if(player==1) {
+                tab[h+1][column*4+2]='x';
+                break;
+            }
+            else {
+                tab[h+1][column*4+2]='o';
+                break;
+            }
+        }
+    }
+    return tab;
+}
 
 int main(void) {
 
@@ -33,6 +58,9 @@ int main(void) {
     plateau[2][2] = 'x';
     plateau[5][18] = 'o';
 
+    plateau = addToken(plateau,0,hauteur,8);
+    plateau = addToken(plateau,1,hauteur,8);
+
     //Afficher les éléments
     for (int h = 0; h < hauteur; h++) {
         int l = 0;
@@ -63,14 +91,6 @@ int main(void) {
         printf("%03d", i);
         printf("\033[0m");
     }
-
-    /*void addToken(char** tab , Player player, unsigned int column){
-        for (int h = 0; h < hauteur; h++){
-            if(tab[h+1][column*4+3]!=' '){
-                tab[h][column*4+3]=player.token;
-            }
-        }
-    }*/
 
 
     free(plateau);

@@ -1,7 +1,7 @@
 #include <stdio.h>//
 #include <stdlib.h>
 #include <string.h>
-// Created by "yohan" on 26/09/2024.
+// Created by "Yohan" on 26/09/2024.
 //
 
 typedef struct {
@@ -10,13 +10,15 @@ typedef struct {
     int turn;
 } Player ;
 
-Player *createPlayer(const char *color, char token, int turn) {
-    Player *players = malloc(sizeof(Player));
-    players->color = malloc(strlen(color) + 1);
-    strcpy(players->color, color);
-    players->color[strlen(color)] = '\0';
-    players->turn = turn;
-    players->token = token;
+Player *createPlayer(const char *color, const char token, const int turn) {
+    Player *player = malloc(sizeof(Player));
+    player->color = malloc(strlen(color) + 1);
+    strcpy(player->color, color);
+    player->color[strlen(color)] = '\0';
+    player->turn = turn;
+    player->token = token;
+
+    return player;
 }
 
 #include "playerInit.h"
