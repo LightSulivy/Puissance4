@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include "gameInit.h"
+#include <stdlib.h>
 #include "../player/playerInit.h"
 
 typedef struct {
@@ -11,6 +12,9 @@ typedef struct {
     char **plateau;
 } Game;
 
-void initGame(int playerCount, int row, int col, int winCount) {
+Game *initGame(const int playerCount, int row, int col, int winCount) {
+    Game *game = malloc(sizeof(Game));
+    game->playerCount = playerCount;
 
+    return game;
 }

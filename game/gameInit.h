@@ -5,4 +5,6 @@
 #ifndef GAMEINIT_H
 #define GAMEINIT_H
 
+Game *initGame(int playerCount, int row, int col, int winCount);
+
 #endif //GAMEINIT_H

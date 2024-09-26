@@ -15,7 +15,7 @@ int main(void) {
     unsigned int largeur = (4*tailleLarger)+2;
 
     char *ligne = (char*)malloc(largeur*sizeof(char));
-    char **plateau = (char**)malloc(hauteur*sizeof(*ligne));
+    char **plateau = (char**)malloc(hauteur*sizeof(ligne));
 
     for (int h = 0; h < hauteur; h++) {
         char *temp = (char*)malloc(largeur*sizeof(char));
