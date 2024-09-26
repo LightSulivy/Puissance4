@@ -29,6 +29,7 @@ int main(void) {
         }
     }
 
+    //Afficher les éléments
     for (int h = 0; h < hauteur; h++) {
         int l = 0;
         while (plateau[h][l]!='\0'){
@@ -38,6 +39,7 @@ int main(void) {
         printf("\n");
     }
 
+    //Afficher les colonnes
     for (int i = 0; i < tailleLarger; i++) {
         printf(" ");
         printf("\033[1;33m");
