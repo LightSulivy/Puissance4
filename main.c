@@ -15,13 +15,13 @@ int main(void) {
     unsigned int largeur = (4*tailleLarger)+2;
 
     char *ligne = (char*)malloc(largeur*sizeof(char));
-    char **plateau = (char**)malloc(hauteur*sizeof(*ligne));
+    char **plateau = (char**)malloc(hauteur*sizeof(ligne));
 
     for (int h = 0; h < hauteur; h++) {
         char *temp = (char*)malloc(largeur*sizeof(char));
         plateau[h] = temp;
     }
-
+    free(ligne);
     for (int h = 0; h < hauteur; h++) {
         for (int l = 0; l < largeur; l++) {
             plateau[h][l] = ' ';
@@ -30,6 +30,8 @@ int main(void) {
         }
     }
 
+    plateau[2][2] = 'x';
+    plateau[5][18] = 'o';
 
     //Afficher les éléments
     for (int h = 0; h < hauteur; h++) {
@@ -62,5 +64,15 @@ int main(void) {
         printf("\033[0m");
     }
 
+    /*void addToken(char** tab , Player player, unsigned int column){
+        for (int h = 0; h < hauteur; h++){
+            if(tab[h+1][column*4+3]!=' '){
+                tab[h][column*4+3]=player.token;
+            }
+        }
+    }*/
+
+
+    free(plateau);
     return 0;
 }
