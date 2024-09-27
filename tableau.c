@@ -3,7 +3,7 @@
 #include "player/playerInit.h"
 
 
-char** addToken(char** tab , char token,int hauteur , int column){
+int* addToken(char** tab , char token,int hauteur , int column){
     for (int h = 0; h < hauteur-1; h++){
         if(tab[h+1][column*4+2]!=' '){
             tab[h][column*4+2]=token;
@@ -21,7 +21,7 @@ char** addToken(char** tab , char token,int hauteur , int column){
             return xy;
         }
     }
-    return tab;
+    return NULL;
 }
 
 char** createTab (int height, int width){
@@ -49,31 +49,61 @@ char** createTab (int height, int width){
 }
 
 void display(int height, int width , char **plateau) {
-    //Afficher les éléments
+
+
     for (int h = 0; h < height; h++) {
+        int l = 0;
+        while (plateau[h][l]!='\0'){
+            if (plateau[h][l]=='X') {
+                printf("\033[0;34m");
+                printf("%c", plateau[h][l]);
+                printf("\033[0m");
+            }
+            else if (plateau[h][l]=='O') {
+                printf("\033[0;31m");
+                printf("%c", plateau[h][l]);
+                printf("\033[0m");
+            }
+            else {
+                printf("%c", plateau[h][l]);
+            }
+
+            l++;
+        }
+        printf("\n");
+    }
+
+    //Afficher les colonnes
+    for (int i = 0; i < width; i++) {
+        printf(" ");
+        printf("\033[1;33m");
+        printf("%03d", i);
+        printf("\033[0m");
+    }
+
+
+
+    //Afficher les éléments
+    /*for (int h = 0; h < height; h++) {
         int l = 0;
         while (plateau[h][l]!='\0'){
             switch (plateau[h][l]) {
                 case 'X':
                     printf("\033[0;33m");
-                printf("%c", plateau[h][l]);
-                printf("\033[0m");
+                    printf("%c", plateau[h][l]);
+                    printf("\033[0m");
+                    l++;
+                    break;
                 case 'O':
                     printf("\033[1;31m");
-                printf("%c", plateau[h][l]);
-                printf("\033[0m");
-                case '&':
-                    printf("\033[0;32m" );
-                printf("%c", plateau[h][l]);
-                printf("\033[0m");
-                case '#':
-                    printf("\033[0;34m");
-                printf("%c", plateau[h][l]);
-                printf("\033[0m");
+                    printf("%c", plateau[h][l]);
+                    printf("\033[0m");
+                    l++;
+                    break;
                 default:
                     printf("%c", plateau[h][l]);
-
-                l++;
+                    l++;
+                    break;
             }
             printf("\n");
         }
@@ -85,6 +115,7 @@ void display(int height, int width , char **plateau) {
             printf("%03d", i);
             printf("\033[0m");
         }
-    }
+    }*/
+    printf("\n");
 }
 #include "tableau.h"

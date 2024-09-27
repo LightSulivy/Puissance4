@@ -6,14 +6,14 @@
 
     #define Case 4;
 
-    int victoiryHorizontal(char **tab, int i, int j, char player,int longTab) {  //Victoire selon l'horirontal
+    int victoiryHorizontal(char **tab, int i, int j, char token,int longTab) {  //Victoire selon l'horirontal
 
                                 //on enregistre l'emplacement du joueur pour vérifier les case à coté de lui
                                 //on rajoute Case pour déplacer le "curseur" sur les côtés jouables
         int mouvement = i +Case;
         int inARow=1;           //Le nombre de point actuelle pour valider la victoire, on le met à 1 car on le compte
 
-        while(tab[mouvement][j]== player && mouvement < longTab) { //tant que le "curseur" tombe sur le même joueur ou ne dépasse pas le tableau de jeu
+        while(tab[mouvement][j]== token && mouvement < longTab) { //tant que le "curseur" tombe sur le même joueur ou ne dépasse pas le tableau de jeu
             //if (tab[i][j]==player) {
                 inARow++;
            // }
@@ -23,7 +23,7 @@
 
         mouvement = i - Case;   //on déplace le curseur vers la position d'origine en direction de l'autre côté
 
-        while(tab[mouvement][j]==player && mouvement > 0) {  //same que avant, mais on refarde si le "curseur" ne dépace pas le tableau
+        while(tab[mouvement][j]==token && mouvement > 0) {  //same que avant, mais on refarde si le "curseur" ne dépace pas le tableau
             //if (tab[i][j]==player) {
                 inARow++;
             //}
@@ -155,7 +155,7 @@
 
 
     int victoire(char **tab, int i, int j, char player, int longTab, int tabHeight) {
-        if(victoiryHorizontal(&&tab, i, j, player, longTab) || victoiryVertical(&&tab, i, j, player, tabHeight) || victoiryDiagonalDH(&&tab, i, j, player, tabHeight, longTab) || victoiryDiagonalGH(&&tab, i, j, player, tabHeight, longTab)) {
+        if(victoiryHorizontal(tab, i, j, player, longTab) || victoiryVertical(tab, i, j, player, tabHeight) || victoiryDiagonalDH(tab, i, j, player, tabHeight, longTab) || victoiryDiagonalGH(tab, i, j, player, tabHeight, longTab)) {
             return 1;
         }
         return 0;

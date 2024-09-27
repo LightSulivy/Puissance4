@@ -7,7 +7,7 @@
 #include "gameInit.h"
 
 
-Game *initGame(const int playerCount, char** plateau , int winCount) {
+/*Game *initGame(const int playerCount, char** plateau , int winCount) {
     Game *game = malloc(sizeof(Game));
     game->playerCount = playerCount;
     game->player = malloc(sizeof(playerCount));
@@ -28,4 +28,4 @@ Game *initGame(const int playerCount, char** plateau , int winCount) {
     }
     game->plateau = malloc(sizeof(plateau));
     return game;
-}
+}*/

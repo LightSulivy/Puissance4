@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "tableau.h"
 #include "victorycheck.h"
 #include "victorycheck.h"
@@ -21,10 +23,29 @@ int main(void) {
     char** plateau = createTab (height, width);
 
     //menuInit();
-    Game* game = initGame( playerCount, plateau, winCount);
-    Player **player = game->player;
+    //Game* game = initGame( playerCount, plateau, winCount);
+    //Player **player = game->player;
     display (height,width, plateau);
-    victoire (plateau,i, j, **player, width, height);
+
+    int key=0;
+    int victory = 0;
+    char pion = 'X';
+    while (!victory) {
+        int column;
+        if(key) {
+            pion = 'X';
+        }else {
+            pion = 'O';
+        }
+        scanf(("%d", &column));
+        printf("%d", column);
+        int *xy = addToken(plateau,pion, height, column);
+        printf("je fou ma merde");
+        display(height, width, plateau);
+
+        victory =victoire (plateau,xy[0], xy[1],pion, width, height);
+        key= !key;
+    }
 
     return 0;
 }

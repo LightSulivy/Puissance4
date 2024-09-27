@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "playerInit.h"
-
+/*
 Player **createPlayer(const char token, const int turn, int playerCount) {
     Player **players = malloc(playerCount * sizeof(Player *));
     for (int i = 0; i < playerCount; i++) {
@@ -11,4 +11,4 @@ Player **createPlayer(const char token, const int turn, int playerCount) {
     }
 
     return players;
-} 
+} */
