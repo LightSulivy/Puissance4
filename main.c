@@ -114,25 +114,18 @@ void optionMenue() {
     printf("/!| en cour de maintenance");
 }
 
-void creditMenue() {
-    printf("Cette merveille à été fait par les fabuleux :  ");
-    printf("        Robin Palmier ! ");
-    printf("        Bastien Teissiere ! ");
-    printf("        Yohan Georgelin ! ");
-    printf("Dites nous merci svp, sinon on vous while(1); ");
-    char *answer=0;
-    scanf("%c", &answer);
-    while (answer!="merci") {
-        printf("Tant qu'il y a pas de 'merci'...");
-        scanf("%c", &answer);
-    }
-    printf("On vous remerci pourvotre sincérité :)");
 
+int winMenu(char playerWin, char playerLoss) {
+    printf("    :::       ::: ::::::::::: ::::    ::: ");
+    printf("   :+:       :+:     :+:     :+:+:   :+:  ");
+    printf("  +:+       +:+     +:+     :+:+:+  +:+   ");
+    printf(" +#+  +:+  +#+     +#+     +#+ +:+ +#+    ");
+    printf("+#+ +#+#+ +#+     +#+     +#+  +#+#+#     ");
+    printf("#+#+# #+#+#      #+#     #+#   #+#+#      ");
+    printf("###   ###   ########### ###    ####       ");
 
-}
-
-int finishMenue() {
-
+    printf("%c est vraiment trop fort", playerWin);
+    printf("%c t'est juste très NULL (ou ASCII = '0' )", playerLoss);
 }
 
 
@@ -265,6 +258,33 @@ int victoire(int **tab, int i, int j, Player player, int longTab, int tabHeight)
     return 0;
 }
 
+int equality() {
+    char answer = 0;
+    printf("                    ___ __     ");
+    printf("  ___  ____ _____ _/ (_) /____ ");
+    printf(" / _ \/ __ `/ __ `/ / / __/ _ \ ");
+    printf("/  __/ /_/ / /_/ / / / /_/  __/");
+    printf("\___/\__, /\__,_/_/_/\__/\___/ ");
+    printf("    /____/                     ");
+    do{
+        printf("1-Rejouer   2-Menue   3-arrêté");
+        scanf("%c", &answer);
+        switch (answer) {
+            case '1':
+                startGame();
+                break;
+            case '2':
+                Startmenue();
+                break;
+            case '3':
+                return 0;
+            default:
+                printf("           Une erreur de saisie est survenue\0    Veuillez sélectionner une VRAI valeur maintenant ");
+            //printf("    Veuillez sélectionner une VRAI valeur maintenant ");
+        }
+    }while(answer!='1' || answer!='4');        //revenir aux choix de menue tant que aucune réponse valable est donné:
+    return 0;
+}
 
 
 
