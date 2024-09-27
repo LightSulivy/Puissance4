@@ -1,66 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "tableau.h"
+#include "victorycheck.h"
+#include "victorycheck.h"
+#include "tableau.h"
+#include "menu.h"
+#include "./game/gameInit.h"
+#include "./player/playerInit.h"
 
 
 int main(void) {
 
-    //Values pour la grille
+    //scanf menuInit
+    int height = 6;
+    int width = 7;
+    int playerCount = 4;
+    int winCount = 4;
 
-    unsigned int tailleHauteur = 6;
-    unsigned int tailleLarger = 20;
+    // ?
+    int i = 0, j = 0;
 
-    //+1 pour le \0
-    unsigned int hauteur = tailleHauteur;
-    unsigned int largeur = (4*tailleLarger)+2;
+    char** plateau = createTab (height, width);
 
-    char *ligne = (char*)malloc(largeur*sizeof(char));
-    char **plateau = (char**)malloc(hauteur*sizeof(*ligne));
-
-    for (int h = 0; h < hauteur; h++) {
-        char *temp = (char*)malloc(largeur*sizeof(char));
-        plateau[h] = temp;
-    }
-
-    for (int h = 0; h < hauteur; h++) {
-        for (int l = 0; l < largeur; l++) {
-            plateau[h][l] = ' ';
-            if(l%4==0) plateau[h][l] = '|';
-            if(l==largeur-1) plateau[h][l] = '\0';
-        }
-    }
-
-
-    //Afficher les éléments
-    for (int h = 0; h < hauteur; h++) {
-        int l = 0;
-        while (plateau[h][l]!='\0'){
-            if (plateau[h][l]=='x') {
-                printf("\033[0;34m");
-                printf("%c", plateau[h][l]);
-                printf("\033[0m");
-            }
-            else if (plateau[h][l]=='o') {
-                printf("\033[0;31m");
-                printf("%c", plateau[h][l]);
-                printf("\033[0m");
-            }
-            else {
-                printf("%c", plateau[h][l]);
-            }
-
-            l++;
-        }
-        printf("\n");
-    }
-
-    //Afficher les colonnes
-    for (int i = 0; i < tailleLarger; i++) {
-        printf(" ");
-        printf("\033[1;33m");
-        printf("%03d", i);
-        printf("\033[0m");
-    }
+    //menuInit();
+    Game* game = initGame( playerCount, plateau, winCount);
+    Player **player = game->player;
+    display (height,width, plateau);
+    victoire (plateau,i, j, **player, width, height);
 
     return 0;
 }

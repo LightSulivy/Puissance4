@@ -4,4 +4,12 @@ project(Puissance4 C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Puissance4 main.c
+        tableau.c
+        victorycheck.c
+        tableau.h
+        victorycheck.h
+        menu.c
+        menu.h
+        player/playerInit.c
+        game/gameInit.c
 )
